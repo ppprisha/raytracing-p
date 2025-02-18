@@ -13,6 +13,7 @@
 
 using color = vec3;
 
+// replaces logic in main to generate colors
 void write_color(std::ostream& out, const color& pixel_color) {
 	auto r = pixel_color.x();
 	auto g = pixel_color.y();
