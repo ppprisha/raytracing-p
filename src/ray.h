@@ -4,7 +4,7 @@
 #define RAY_H
 
 // include statements
-// third party statements
+// third party libraries
 // std libraries
 // our libraries
 #include "vec3.h"
@@ -13,12 +13,12 @@ class ray {
 	public:
 		ray() {}
 		ray(const point3& origin, const vec3& direction) : orig(origin), dir(direction) {}
-		
-		const point3& origin() const { // return immutable ref to their members
+
+		const point3& origin() const {
 			return orig;
 		}
 
-		const vec3& direction() const { // return immutble ref to their members
+		const vec3& direction() const {
 			return dir;
 		}
 
@@ -32,5 +32,3 @@ class ray {
 };
 
 #endif
-
-
