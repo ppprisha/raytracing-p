@@ -6,7 +6,6 @@
 // include statements
 // third party libraries
 // std libraries
-#include <iostream>
 // our libraries
 #include "vec3.h"
 

@@ -6,8 +6,6 @@
 // include statements
 // third party libraries
 // std libraries
-#include <cmath>
-#include <iostream>
 // our libraries
 
 class vec3 {
