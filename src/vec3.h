@@ -1,12 +1,8 @@
-// author: prisha sujin kumar
-
 #ifndef VEC3_H
 #define VEC3_H
 
-// include statements
-// third party libraries
-// std libraries
-// our libraries
+// author: prisha sujin kumar
+// desc: handles vector operations
 
 class vec3 {
 	public:
@@ -129,6 +125,15 @@ inline vec3 unit_vector(const vec3& v) {
 	return v / v.length();
 }
 
+inline vec3 random_in_unit_disk() {
+	while (true) {
+		auto p = vec3(random_double(-1, 1), random_double(-1, 1), 0);
+		if (p.length_squared() < 1) {
+			return p;
+		}
+	}
+}
+
 inline vec3 random_unit_vector() {
 	while (true) {
 		auto p = vec3::random(-1, 1); // generates random vector in unit sphere
@@ -160,7 +165,7 @@ inline vec3 refract(const vec3& uv, const vec3& n, double etai_over_etat) {
 	return r_out_perp + r_out_parallel;
 }
 
-#endif
+#endif // VEC3_H
 
 
 

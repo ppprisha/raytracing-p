@@ -1,10 +1,8 @@
-// author: prisha sujin kumar
-
 #ifndef UTILITIES_H
 #define UTILITIES_H
 
-// include statements
-// third party libraries
+// author: prisha sujin kumar
+
 // std libraries
 #include <cmath>
 #include <cstdlib>
@@ -41,6 +39,6 @@ inline double random_double(double min, double max) {
 #include "vec3.h"
 
 
-#endif
+#endif // UTILITIES_H
 
 

@@ -1,11 +1,9 @@
-// author: prisha sujin kumar
-
 #ifndef MATERIAL_H
 #define MATERIAL_H
 
-// include statements
-// third party libraries
-// std libraries
+// author: prisha sujin kumar
+// desc: handles materials
+
 // our libraries
 #include "hittable.h"
 
@@ -31,7 +29,7 @@ class lambertian : public material {
 			if (scatter_direction.near_zero()) {
 				scatter_direction = rec.normal;
 			}
-			scattered = ray(rec.p, scatter_direction);
+			scattered = ray(rec.p, scatter_direction, r_in.time());
 			attenuation = albedo;
 			return true;
 		}
@@ -50,7 +48,7 @@ class metal : public material {
     		const override {
         		vec3 reflected = reflect(r_in.direction(), rec.normal);
 			reflected = unit_vector(reflected) + (fuzz * random_unit_vector());
-        		scattered = ray(rec.p, reflected);
+        		scattered = ray(rec.p, reflected, r_in.time());
         		attenuation = albedo;
         		return (dot(scattered.direction(), rec.normal) > 0);
     		}
@@ -82,7 +80,7 @@ class dielectric : public material {
 				direction = refract(unit_direction, rec.normal, ri);
 			}
 
-			scattered = ray(rec.p, direction);
+			scattered = ray(rec.p, direction, r_in.time());
 			return true;
 		}
 	private:
@@ -93,4 +91,4 @@ class dielectric : public material {
 			return r0 + (1 - r0)*std::pow((1 - cosine), 5);
 		}
 };
-#endif
+#endif // MATERIAL_H

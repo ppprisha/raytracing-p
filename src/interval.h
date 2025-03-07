@@ -1,12 +1,8 @@
-// author: prisha sujin kumar
-// manages real-valued intervals w a min and a max
 #ifndef INTERVAL_H
 #define INTERVAL_H
 
-// include statements
-// third party libraries
-// std libraries
-// our libraries
+// author: prisha sujin kumar
+// desc: manages real-valued intervals w a min and a max
 
 class interval {
 	public:
@@ -41,4 +37,4 @@ class interval {
 const interval interval::empty = interval(+infinity, -infinity);
 const interval interval::universe = interval(-infinity, +infinity);
 
-#endif
+#endif // INTERVAL_H

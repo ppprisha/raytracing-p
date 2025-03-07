@@ -1,15 +1,12 @@
-// author: prisha sujin kumar
-
 #ifndef HITTABLE_LIST_H
 #define HITTABLE_LIST_H
 
-// include statements
-// third party libraries
+// author: prisha sujin kumar
 // std libraries
 #include <vector>
+
 // our libraries
 #include "hittable.h"
-
 
 class hittable_list : public hittable {
 	public:
@@ -46,4 +43,4 @@ class hittable_list : public hittable {
 		}
 };
 
-#endif
+#endif // HITTABLE_LIST_H
