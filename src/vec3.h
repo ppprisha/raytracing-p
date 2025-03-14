@@ -75,6 +75,7 @@ class vec3 {
 		static vec3 random(double min, double max) {
 			return vec3(random_double(min, max), random_double(min, max), random_double(min, max));
 		}
+
 };
 
 // point3 is also vec3
@@ -164,6 +165,28 @@ inline vec3 refract(const vec3& uv, const vec3& n, double etai_over_etat) {
 	vec3 r_out_parallel = -std::sqrt(std::fabs(1.0 - r_out_perp.length_squared())) * n;
 	return r_out_perp + r_out_parallel;
 }
+
+inline vec3 min(const vec3& a, const vec3& b) {
+	return vec3(fmin(a.x(), b.x()),
+		    fmin(a.y(), b.y()),
+		    fmin(a.z(), b.z()));
+}
+
+inline vec3 max(const vec3& a, const vec3& b) {
+	return vec3(fmax(a.x(), b.x()),
+		    fmax(a.y(), b.y()),
+		    fmax(a.z(), b.z()));
+}
+
+inline vec3 rotate_x(const vec3& v, double theta) {
+			return vec3(
+				v.x(),
+				v.y() * cos(theta) - v.z() * sin(theta),
+				v.y() * sin(theta) + v.z() * cos(theta)
+			);
+		}
+
+
 
 #endif // VEC3_H
 

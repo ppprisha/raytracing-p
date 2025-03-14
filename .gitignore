@@ -1,0 +1,14 @@
+# compiled binaries
+*.exe
+*.dll
+*.so
+*.a
+
+# macOS
+*.dSYM
+.DS_Store
+
+# vim files
+*.swp
+*.swo
+*.swpx

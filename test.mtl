@@ -1,0 +1,5 @@
+newmtl Red
+Kd 1 0 0 # Bright red
+
+newmtl Blue
+Kd 0 0 1 # Bright blue

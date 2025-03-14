@@ -6,6 +6,22 @@
 
 // our libraries
 #include "hittable.h"
+#include "utilities.h"
+
+class texture {
+	public:
+		virtual color value(double u, double v, const point3& p) const = 0;
+};
+
+class solid_color : public texture {
+	public:
+		solid_color(color c) : color_value(c) {}
+		color value(double u, double v, const point3& p) const override {
+			return color_value;
+		}
+	private:
+		color color_value;
+};
 
 class material {
 	public:
@@ -14,6 +30,9 @@ class material {
 			const ray& r_in, const hit_record& rec, color& attenuation, ray& scattered
 		) const {
 			return false;
+		}
+		virtual color emitted(double u, double v, const point3& p) const {
+			return color(0, 0, 0);
 		}
 };
 
@@ -91,4 +110,22 @@ class dielectric : public material {
 			return r0 + (1 - r0)*std::pow((1 - cosine), 5);
 		}
 };
+
+class diffuse_light : public material {
+	public:
+		diffuse_light(color c) : emit(make_shared<solid_color>(c)) {}
+		diffuse_light(shared_ptr<texture> tex) : emit(tex) {}
+
+		bool scatter(const ray& r_in, const hit_record& rec, color& attenuation, ray& scattered) const override {
+			return false;
+		}
+
+		color emitted(double u, double v, const point3& p) const override {
+			return emit->value(u, v, p);
+		}
+	private:
+		shared_ptr<texture> emit;
+
+};
+
 #endif // MATERIAL_H
